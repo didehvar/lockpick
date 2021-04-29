@@ -16,6 +16,13 @@ export default ({ mode }) => {
           server: resolve(__dirname, 'src/server/index.ts'),
         },
       },
+      ...(mode === 'build'
+        ? {
+            watch: {
+              buildDelay: 500,
+            },
+          }
+        : {}),
     },
   });
 };

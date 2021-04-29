@@ -41,7 +41,6 @@ export default function nuiBuild(mode: string): Plugin {
     process.cwd(),
     ''
   );
-  console.log('copy', copyPath, 'rcon', rconConnection);
   const resourceName = copyPath
     ? basename(copyPath)
     : basename(resolve(__dirname, '../'));
