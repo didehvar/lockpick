@@ -105,6 +105,7 @@ const attempt = (event: KeyboardEvent) => {
 }
 
 input {
+  position: absolute;
   opacity: 0;
 }
 </style>
