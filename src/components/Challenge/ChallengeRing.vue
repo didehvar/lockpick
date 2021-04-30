@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, onMounted, reactive, ref } from 'vue';
+import { defineEmit, defineProps, onMounted, reactive, ref } from 'vue';
 import { inRange, random } from 'lodash-es';
-import CanvasRing from './Canvas/CanvasRing.vue';
+import CanvasRing from '../Canvas/CanvasRing.vue';
 
 const props = defineProps({
   times: {
@@ -24,10 +24,12 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmit(['success', 'failure']);
+
 const input = ref<HTMLElement | null>(null);
 
 const requiredInput = ref(0);
-const time = reactive({ angle: 50, speed: 0 });
+const time = reactive({ angle: 0, speed: 0 });
 const targetAngle = reactive({ start: 0, end: 0 });
 
 let timesRun = 0;
@@ -63,10 +65,12 @@ const stop = () => cancelAnimationFrame(animationFrame);
 const success = () => {
   stop();
   if (++timesRun < props.times) return restart();
+  emit('success');
 };
 
 const failure = () => {
   stop();
+  emit('failure');
 };
 
 const attempt = (event: KeyboardEvent) => {

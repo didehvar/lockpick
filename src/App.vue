@@ -1,9 +1,9 @@
 <template>
-  <RingChallenge />
+  <EventChallengeRing />
 </template>
 
 <script setup lang="ts">
-import RingChallenge from './components/BaseChallenge.vue';
+import EventChallengeRing from './components/Event/EventChallengeRing.vue';
 </script>
 
 <style>

@@ -12,6 +12,8 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@citizenfx/client": "^2.0.3887-1",
+    "@citizenfx/server": "^2.0.3887-1",
     "@types/lodash-es": "^4.17.4",
     "@types/node": "^15.0.1",
     "@vitejs/plugin-vue": "^1.2.2",

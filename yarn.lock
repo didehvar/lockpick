@@ -20,6 +20,16 @@
     "@babel/helper-validator-identifier" "^7.12.11"
     to-fast-properties "^2.0.0"
 
+"@citizenfx/client@^2.0.3887-1":
+  version "2.0.3887-1"
+  resolved "https://registry.yarnpkg.com/@citizenfx/client/-/client-2.0.3887-1.tgz#d92052956760c4489b5f1e55033ee9a9c2db29bc"
+  integrity sha512-4evl72/kJwsj8v4PdW6P9xhTWaCFLSyEYLdJ7a12MC6Ru23/3f3MndRA1FcTb/Fa2nrh8Hy06TM6KeWG2Lv1Hg==
+
+"@citizenfx/server@^2.0.3887-1":
+  version "2.0.3887-1"
+  resolved "https://registry.yarnpkg.com/@citizenfx/server/-/server-2.0.3887-1.tgz#b1c251112e89d1825962814e24a51e9d2c0a6272"
+  integrity sha512-116255SbL11D03y2Uc+pR0NcN+v1p/oG2bftEM6GniTPS1Zn4BbjFSDPjVCUe5KgTH+FLyBNolpIL1WyH82NJQ==
+
 "@types/lodash-es@^4.17.4":
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.4.tgz#b2e440d2bf8a93584a9fd798452ec497986c9b97"

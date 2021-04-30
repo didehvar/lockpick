@@ -1,6 +1,6 @@
-import { computed, onMounted, ref, toRefs, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 
-export default function () {
+export default function useCanvas() {
   const canvas = ref<HTMLCanvasElement | null>(null);
   const context = ref<CanvasRenderingContext2D | null>(null);
 
