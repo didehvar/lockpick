@@ -1,5 +1,6 @@
 import { Vehicle, VehicleLockStatus } from 'fivem-js';
 import { events } from '../../utils/events';
+import './hotwire';
 import './state';
 
 on(events.vehicle.entering, (playerHandle: number, vehicleHandle: number) => {
