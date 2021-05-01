@@ -7,8 +7,8 @@ fx_version 'cerulean'
 game 'gta5'
 
 ui_page 'index.html'
-client_script 'client.iife.js'
-server_script 'server.cjs.js'
+client_script 'client.js'
+server_script 'server.js'
 
 files {
   'index.html',

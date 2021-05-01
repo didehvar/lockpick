@@ -4,37 +4,17 @@ const { copySync, emptyDirSync } = require('fs-extra');
 const Q3Rcon = require('quake3-rcon');
 const { watch } = require('chokidar');
 const { debounce } = require('lodash');
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config.js');
 
 const outDir = 'dist';
+const compiler = webpack(webpackConfig);
 
 const run = asyncDebounce(async () => {
   emptyDirSync(outDir);
 
   await Promise.all([
-    build({
-      build: {
-        outDir,
-        emptyOutDir: false,
-        lib: {
-          entry: resolve(dirname(''), 'src/client/index.ts'),
-          name: 'lockpick',
-          formats: ['iife'],
-          fileName: 'client',
-        },
-      },
-    }),
-    build({
-      build: {
-        outDir,
-        emptyOutDir: false,
-        lib: {
-          entry: resolve(dirname(''), 'src/server/index.ts'),
-          name: 'lockpick',
-          formats: ['cjs'],
-          fileName: 'server',
-        },
-      },
-    }),
+    webpackBuild(),
     build({
       build: {
         outDir,
@@ -58,6 +38,28 @@ const run = asyncDebounce(async () => {
 
 run();
 watch('src', { ignoreInitial: true }).on('all', run);
+
+async function webpackBuild() {
+  return new Promise<void>((resolve) =>
+    compiler.run((err: any, stats: any) => {
+      if (err) {
+        console.error(err.stack || err);
+        if (err.details) console.error(err.details);
+        return resolve();
+      }
+
+      if (stats.hasErrors() || stats.hasWarnings()) {
+        console.error(stats.toString('errors-warnings'));
+      } else {
+        console.log(stats.toString('summary'));
+      }
+
+      compiler.close(() => {
+        resolve();
+      });
+    })
+  );
+}
 
 function copyResourceToServer(from: string, to: string) {
   if (!to) return;
