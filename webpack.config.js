@@ -12,14 +12,7 @@ const commonConfig = (dir) => ({
     rules: [
       {
         test: /\.tsx?$/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              configFile: resolve(__dirname, `src/${dir}/tsconfig.json`),
-            },
-          },
-        ],
+        loader: 'ts-loader',
         exclude: /node_modules/,
       },
     ],

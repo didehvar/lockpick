@@ -1,7 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "types": ["node", "@citizenfx/server", "fivem-js"]
-  },
-  "include": ["./**/*.ts", "../utils/**/*.ts"]
-}
