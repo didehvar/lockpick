@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { events } from '../../events/nui';
+import { ref } from 'vue';
+import { events } from '../../utils/events';
 import ChallengeRing from '../Challenge/ChallengeRing.vue';
 import useReceiveEvent from './useReceiveEvent';
 import useSendEvent from './useSendEvent';

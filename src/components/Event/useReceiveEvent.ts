@@ -1,5 +1,5 @@
 import { onUnmounted } from 'vue';
-import { NuiEvent } from '../../events/nui';
+import { NuiEvent } from '../../utils/events';
 
 const nuiEvent = 'message';
 

@@ -1,4 +1,5 @@
-export function callVueEvent(event: string) {
+export function callVueEvent(event: string, focus = true) {
+  if (focus) SetNuiFocus(true, false);
   SendNuiMessage(
     JSON.stringify({
       event,
@@ -6,10 +7,19 @@ export function callVueEvent(event: string) {
   );
 }
 
+type VueCallback = (data: object, callback: (data: object) => void) => void;
+
 export function onVueCallback(
   event: string,
-  callback: (data: object, callback: (data: object) => void) => void
+  callback: VueCallback,
+  unfocus = true
 ) {
   RegisterNuiCallbackType(event);
-  on(`__cfx_nui:${event}`, callback);
+
+  const onEvent: VueCallback = (data, cb) => {
+    if (unfocus) SetNuiFocus(false, false);
+    callback(data, cb);
+  };
+
+  on(`__cfx_nui:${event}`, onEvent);
 }
