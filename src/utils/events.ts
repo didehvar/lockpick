@@ -11,6 +11,10 @@ export const events = mapValues({
     entered: 'entered',
     aborted: 'aborted',
     exited: 'exited',
+    isOwned: 'isOwned',
+    owned: 'owned',
+    unowned: 'unowned',
+    hotwired: 'hotwired',
   },
   lockpick: {
     start: 'start',

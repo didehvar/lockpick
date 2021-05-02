@@ -23,4 +23,6 @@ onVueCallback(events.challengeRing.success, (data, callback) => {
   const vehicle = Game.PlayerPed.CurrentVehicle;
   vehicle.IsDriveable = false;
   vehicle.IsEngineRunning = true;
+
+  emitNet(events.vehicle.hotwired, vehicle.Handle);
 });
